@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+    <title>Freely</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
+
+body {
+    background-color:#F7F7F7;
+    font-family: 'Open Sans', sans-serif;
+}
+/*Navbar*/
+.navbar-default {
+    background-color:#fff;
+    border-bottom-color:#E3E3E3;
+}
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a:hover, 
+.navbar-default .navbar-nav>.active>a:focus{
+    background-color:transparent!important;
+}
+.navbar-default .btn-compose {
+    padding-right:10px;
+    border-right:1px solid #F0F0F0;
+}
+/*Forms setup*/
+.form-control {
+    border-radius:0;
+    box-shadow:none;
+    height:auto;
+}
+.float-label{
+    font-size:10px;
+}
+input[type="text"].form-control,
+input[type="search"].form-control{
+    border:none;
+    border-bottom:1px dotted #CFCFCF;
+}
+textarea {
+    border:1px dotted #CFCFCF!important;
+    height:130px!important;
+}
+/*Content Container*/
+.content-container {
+    background-color:#fff;
+    padding:35px 20px;
+    margin-bottom:20px;
+}
+h1.content-title{
+    font-size:32px;
+    font-weight:300;
+    text-align:center;
+    margin-top:0;
+    margin-bottom:20px;
+    font-family: 'Open Sans', sans-serif!important;
+}
+/*Compose*/
+.btn-send{
+    text-align:center;
+    margin-top:20px;
+}
+/*mail list*/
+
+ul.mail-list{
+    padding:0;
+    margin:0;
+    list-style:none;
+    margin-top:30px;
+}
+ul.mail-list li a{
+    display:block;
+    border-bottom:1px dotted #CFCFCF;
+    padding:20px;
+    text-decoration:none;
+}
+ul.mail-list li:last-child a{
+    border-bottom:none;
+}
+ul.mail-list li a:hover{
+    background-color:#DBF9FF;
+}
+ul.mail-list li span{
+    display:block;
+}
+ul.mail-list li span.mail-sender{
+    font-weight:600;
+    color:#8F8F8F;
+}
+ul.mail-list li span.mail-subject{
+    color:#8C8C8C;
+}
+ul.mail-list li span.mail-message-preview{
+    display:block;
+    color:#A8A8A8;
+}
+.mail-search{
+    border-bottom-color:#7FBCC9!important; 
+}
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    {% block body %}
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+
+            </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="btn-compose pull-left">
+                <a type="button" class="btn btn-danger navbar-btn" href="{% url 'register_project' %}"> <span class="glyphicon glyphicon-pencil"></span> Crie uma Proposta</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li>
+                    <a href="#inbox" role="tab" data-toggle="tab">
+                        Inbox <span class="label label-success">10</span>
+                    </a>
+                </li>
+                <li><a href="#sent-mail" role="tab" data-toggle="tab">Sent mail</a>
+
+                </li>
+                <li><a href="#draft" role="tab" data-toggle="tab">Draft</a>
+
+                </li>
+                <li><a href="#trash" role="tab" data-toggle="tab">Trash</a>
+
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp {{user.username}}</a>
+
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<div class="item-listing small-padding-bg">
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 home-list-pop-desc inn-list-pop-desc"> <a href="listing-details.html"><h3>Packers and Movers</h3></a>
+                                        <h4>Express Avenue Mall, Los Angeles</h4>
+                                        <p><b>Address:</b> 28800 Orchard Lake Road, Suite 180 Farmington Hills, U.S.A.</p>
+                <div class="list-number ">
+                                            <ul>
+                                                <li><img src="images/icon/phone.png" alt=""> +01 1245 2541, +62 6541 6528</li>
+                                                <li><img src="images/icon/mail.png" alt=""> localdir@webdir.com</li>
+                                            </ul>
+    </div>
+                <div class="list-enquiry">
+                                            <ul>
+                                                <li class="btn btn-md btn-warning"><a href="#!"><i class="fa fa-star-o" aria-hidden="true"></i> Write Review</a> </li>
+                                                <li class="btn btn-md btn-warning"><a href="#!"><i class="fa fa-commenting-o" aria-hidden="true"></i> Send SMS</a> </li>
+                                                <li class="btn btn-md btn-warning"><a href="#!"><i class="fa fa-phone" aria-hidden="true"></i> Call Now</a> </li>
+                                                <li class="btn btn-md btn-warning"><a href="#!" data-dismiss="modal" data-toggle="modal" data-target="#list-quo"><i class="fa fa-usd" aria-hidden="true"></i> Get Quotes</a> </li>
+                                                
+                                            </ul>
+                                        </div>
+</div>
+    </div>
+</div>
+    </div>
+{% endblock %}
+</body>
+</html>

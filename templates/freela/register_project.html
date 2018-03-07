@@ -1,0 +1,46 @@
+{% extends 'freela/base.html' %}
+
+{% block content %}
+<div class="tab-content">
+  <div class="container">
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+        <form role="form" method="post">
+            {% csrf_token %}
+
+            {% block form %}
+            <h2> <small>Ficha do Projeto</small></h2>
+            <hr class="colorgraph">
+            <div class="form-group">
+                <input type="text" name="name" id="name" class="form-control input-lg" placeholder="Nome do Projeto" tabindex="3">
+            </div>
+            <div class="form-group">
+                <input type="text" name="budget" id="budget" class="form-control input-lg" placeholder="Orçamento" tabindex="3">
+            </div>
+            <div class="form-group">
+                <input type="text" name="description" id="description" class="form-control input-lg" placeholder="Descrição" tabindex="3" height="100px">
+            </div>
+
+
+            <div class="row">
+
+                <div class="col-xs-9 col-sm-9 col-md-9">
+                     Clicando em <strong class="label label-primary">Postar</strong>, você concorda com os <a href="#" data-toggle="modal" data-target="#t_and_c_m" style="color: blue">Termos e Condições</a> da plataforma, incluindo nosso uso de Cookies.
+                </div>
+            </div>
+            
+            <hr class="colorgraph">
+            <div class="row">                        
+                <div class="col-xs-6 col-md-6"><input type="submit" value="Postar" class="btn btn-success btn-block btn-lg"></div>
+            </div>
+            {% endblock %}
+        </form>
+    </div>
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

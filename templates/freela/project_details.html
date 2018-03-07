@@ -1,0 +1,76 @@
+{% extends 'freela/base.html' %}
+{% block content %}
+<div style="padding-left: 95px">
+    <a href="{% url 'index' %}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Voltar </a>
+</div>
+<div class="tab-content">
+  <div class="tab-pane active" id="inbox">
+    <div class="content-container clearfix">
+      <ul class="mail-list">
+         <li>
+            <div class="container">
+                <div class="col-md-5">
+                    <h3 class="list-group-item-heading pb-3">{{project.name}}</h3>
+                    <h4 class="list-group-item-heading pb-3">{{project.owner.username}}</h4>
+                    <p class="list-group-item-text">{{project.description}}</p>
+                </div>
+                <div class="col-md-3 pull-left">
+                    <div class = "container col-md-12">
+                        <div class = "row">
+                            <div class="col-md-12 pull-left"><i class="fa fa-check-square"></i> General Manager</div>
+                        </div>
+                        <div class = "row">
+                            <div class="col-md-12 pull-left"><i class="fa fa-check-square"></i> Project Manager</div>
+                        </div>
+                        <div class = "row">
+                            <div class="col-md-12 pull-left"><i class="fa fa-square"></i> Tech Lead</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1 text-center">
+                    <p> 2 <small> approvals </small></p>
+                    <div class="btn-compose pull-left">
+                        <a type="button" class="btn btn-danger navbar-btn" href="{% url 'register_project' %}"> Ver detalhes </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+</div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <!-- the comment box -->
+        <div class="well">
+            <h4><i class="fa fa-paper-plane-o"></i> Deixe um comentário:</h4>
+            {% block form %}
+            <form role="form" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <textarea name="text" class="form-control" rows="3"></textarea>
+                </div>
+                <div>
+                <input type="submit" value="Enviar" class="btn btn-primary"></div>
+            </form>
+            {% endblock %}
+        </div>
+    </div>
+
+                <!-- the comments -->
+                {% for item in comments %}
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3><i class="fa fa-comment"></i> {{item.author.username}} says:
+                            <small> 9:41 PM on August 24, 2014</small>
+                        </h3>
+                        <p>{{item.text}}</p>
+                        <a href="{% url 'send_message' item.author.id user.id %}" style="color: blue"><i class="fa fa-reply"></i></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+{% endblock %}

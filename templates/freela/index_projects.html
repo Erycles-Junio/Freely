@@ -1,0 +1,42 @@
+{% extends 'freela/base.html' %}
+
+{% block content %}
+
+    <div style="padding-left: 95px">
+        <a href="{% url 'index_services' %}" class="btn btn-warning">Ir para Serviços</a>
+    </div>
+    <div class="col-lg-9" style="padding-left: 150px">
+				<form class="input-group" method="get">
+					<input type="text" name="search_by" class="form-control" placeholder="Pesquisar por...">
+					<span class="input-group-btn">
+						<button class="btn btn-primary" type="submit">Pesquisar</button>
+					</span>
+				</form>
+			</div>
+            <br><br><br>
+
+      {% for item in lista %}
+    <div class="list-group col-md-12" style="padding-left: 150px">
+            <div class="media col-md-3">
+                <figure class="pull-left">
+                    <img class="media-object img-rounded img-responsive" src="https://www.elegantthemes.com/blog/wp-content/uploads/2016/01/How-to-increase-freelancer-rates.jpg" alt="placehold.it/140x100" width="200" height="140">
+                </figure>
+            </div>
+            <div class="col-md-4">
+                <h4 class="list-group-item-heading pb-3"><b> {{item.name}} </b></h4>
+                <p class="list-group-item-text">{{item.description}}</p>
+            </div>
+
+            <div class="col-md-1 text-center">
+                <p> 2 <small> approvals </small></p>
+                 <div class="btn-compose pull-left">
+                        <a type="button" class="btn btn-success" href="{% url 'project_details' item.auto_increment_id %}"> Ver detalhes </a>
+                    </div>
+            </div>
+    </div>
+
+    {% endfor %}
+
+
+    
+    {% endblock %}

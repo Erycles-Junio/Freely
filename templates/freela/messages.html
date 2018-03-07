@@ -1,0 +1,35 @@
+{% extends 'freela/base.html' %}
+{% block content %}
+<div class="container">
+	<table id="cart" class="table table-hover table-condensed">
+    				<thead>
+            <td><a href="{% url 'index' %}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Voltar </a></td> 
+						<tr>
+							<th style="width:50%">Usuario</th>
+							<th style="width:10%"></th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for item in messages %}
+						<tr>
+							<td>
+								<div class="row">
+									<div class="col-sm-10">
+										<h4 class="nomargin">{{item.sender}}</h4>
+										<p>{{item.message}}</p>
+									</div>
+								</div>
+							</td>
+				
+							<td class="actions" data-th="">
+                <a class="btn btn-info btn-sm" href="{% url 'send_message' item.receiver.id item.sender.id %}"><em class="fa fa-reply"></em></a>
+                <a class="btn btn-danger btn-sm" href="{% url 'delete_message' item.id %}"><em class="fa fa-trash-o"></em></a>
+								
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+</div>
+{% endblock %}
+

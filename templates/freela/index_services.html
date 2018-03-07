@@ -1,0 +1,43 @@
+{% extends 'freela/base.html' %}
+
+{% block content %}
+
+    <div style="padding-left: 95px">
+        <a href="{% url 'index_projects' %}" class="btn btn-warning">Ir para Projetos</a>
+    </div>
+    <div class="col-lg-9" style="padding-left: 150px">
+				<form class="input-group" method="get">
+					<input type="text" name="search_by" class="form-control" placeholder="Pesquisar por...">
+					<span class="input-group-btn">
+						<button class="btn btn-primary" type="submit">Pesquisar</button>
+					</span>
+				</form>
+			</div>
+            <br><br><br>
+
+      {% for item in lista %}
+    <div class="list-group col-md-12" style="padding-left: 150px">
+            <div class="media col-md-3">
+                <figure class="pull-left">
+                    <img class="media-object img-rounded img-responsive" src="https://www.elegantthemes.com/blog/wp-content/uploads/2015/05/WordPress-Freelancer.jpg" alt="placehold.it/140x100" width="200" height="140">
+                </figure>
+            </div>
+            <div class="col-md-4">
+                <h4 class="list-group-item-heading pb-3"><b> {{item.name}} </b></h4>
+                <h5 class="list-group-item-heading pb-3"><strong class="label label-primary"> R$ {{item.budget}}</strong></h5>
+                <p class="list-group-item-text">{{item.description}}</p>
+                <h5 class="list-group-item-heading pb-3"><strong class="label label-success">{{item.area}}</strong></h5>
+            </div>
+
+            <div class="col-md-1 text-center">
+                 <div class="btn-compose pull-left">
+                        <a type="button" class="btn btn-success" href="{% url 'send_message' item.owner.id user.id %}"> Entrar em contato </a>
+                    </div>
+            </div>
+    </div>
+
+    {% endfor %}
+
+
+    
+    {% endblock %}
